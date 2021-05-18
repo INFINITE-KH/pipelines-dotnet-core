@@ -14,17 +14,20 @@ variables:
 
 steps:
 - task: UseDotNet@2
+  displayName: 'SDK v5.0.x'
   inputs:
     version: '5.0.x'
     performMultiLevelLookup: true
     includePreviewVersions: true # Required for preview versions
 
 - task: UseDotNet@2
+  displayName: 'Runtime v3.0.x'
   inputs:
     version: '3.0.x'
     packageType: runtime
 
 - task: DotNetCoreCLI@2
+  displayName: 'Restore'
   inputs:
     command: 'restore'
     feedsToUse: 'select'
