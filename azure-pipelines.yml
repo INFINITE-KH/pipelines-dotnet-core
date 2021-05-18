@@ -27,11 +27,12 @@ steps:
     packageType: runtime
 
 - task: DotNetCoreCLI@2
-  displayName: 'Restore'
+  displayName: Restore
   inputs:
-    command: 'restore'
-    feedsToUse: 'select'
-    vstsFeed: 'my-vsts-feed' # A series of numbers and letters
+    command: restore
+    projects: '**/*.csproj'
+    feedsToUse: config
+    nugetConfigPath: NuGet.config    # Relative to root of the repository
 
 - task: DotNetCoreCLI@2
   displayName: Build
